@@ -1,0 +1,261 @@
+
+Connection connection=null;
+    @Override
+    public boolean addEmployeeDetails(Employee employee)
+    {
+        String  sql="insert into employee values(?,?,?,?,?,?,?)";
+        //Get the connection object
+        connection= DbUtil.getDatabaseConnection();
+        if (connection!=null)
+        {
+            try {
+                PreparedStatement statement=connection.prepareStatement(sql);
+                statement.setInt(1,employee.getId());
+                statement.setString(2,employee.getName());
+                statement.setLong(3,employee.getPhone());
+                statement.setDouble(4,employee.getSalary());
+                java.sql.Date date= Date.valueOf(employee.getDateOfJoining());
+                statement.setDate(5,date);
+                statement.setString(6,employee.getCompany());
+                statement.setString(7,employee.getDepartment());
+
+                int noOfRows=statement.executeUpdate();
+                if(noOfRows>0)
+                {
+                    return true;
+                }
+                statement.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            finally {
+                try {
+                    //Close the  connection
+                    connection.close();
+                }
+                catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+
+
+
+Reply Privately
+
+
+
+11:41 AM
+
+Ramalakshmi.Anyam@ust.com to Me
+
+Private
+
+public class App {
+    public static void main(String[] args) throws SQLException {
+        LocalDate doj = LocalDate.now();
+        Employee employee = new Employee(112, "Hema", 9885625158l, 45623.23, doj, "UST", "Full Stack Developer");
+        EmployeeDaoImpl employeeDao = new EmployeeDaoImpl();
+        if (employeeDao.addEmployeeDetails(employee)) {
+            System.out.println("Data Inserted Sucessfully");
+        } else {
+            System.out.println("Check your code");
+        }
+    }
+
+
+for select details
+
+[12:46 PM] Ramalakshmi Anyam(UST,IN)
+    
+
+public List<Employee> getAllEmployeeDetails()
+{​​​​​​​​
+    List<Employee> employeeList=new ArrayList<>();
+    String sql="select * from employee" ;
+    //String sql="select * from employee where id=?" ;
+connection=DbUtil.getDatabaseConnection();
+    PreparedStatement statement = null;
+    if(connection!=null){​​​​​​​​
+        try {​​​​​​​​
+            statement = connection.prepareStatement(sql);
+            ResultSet resultSet= statement.executeQuery();
+            //Moves the cursor forward one row from its current position.
+while (resultSet.next()){​​​​​​​​
+                Employee employee=new Employee();
+                employee.setId(resultSet.getInt("id"));
+                employee.setName(resultSet.getString("ename"));
+                employee.setPhone(resultSet.getLong("phone"));
+                employee.setSalary(resultSet.getDouble("salary"));
+                employee.setCompany(resultSet.getString("company"));
+                employee.setDepartment(resultSet.getString("department"));
+                Date dataOfJoining = resultSet.getDate("dataOfJoining");
+                employee.setDateOfJoining(dataOfJoining.toLocalDate());
+                employeeList.add(employee);
+            }​​​​​​​​
+        }​​​​​​​​ catch (SQLException throwables) {​​​​​​​​
+        }​​​​​​​​
+        finally {​​​​​​​​
+            try {​​​​​​​​
+                statement.close();
+                connection.close();
+            }​​​​​​​​ catch (SQLException throwables) {​​​​​​​​
+                throwables.printStackTrace();
+            }​​​​​​​​
+        }​​​​​​​​
+    }​​​​​​​​
+    return employeeList;
+}​​​​​​​​
+
+
+​[12:46 PM] Ramalakshmi Anyam(UST,IN)
+    
+
+System.out.println("List of employees");
+List<Employee> list= employeeDao.getAllEmployeeDetails();
+if (list.isEmpty())
+{​​​​​​​​
+    System.out.println("No data found");
+}​​​​​​​​
+else
+{​​​​​​​​
+    list.stream().forEach(employee1 ->
+            System.out.println(employee1.getId()+"----"+employee1.getName()));
+}​​​​​​​​
+
+delete and update query
+
+
+String update="update employee set phone=? where id=?";  
+
+
+
+
+3:39 PM
+
+SR SATHISH to Everyone
+
+package com.dao;
+
+import com.dbutil.DbUtil;
+import com.model.Employee;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmployeeDaoImpl implements EmployeeDao {
+    Connection connection=null;
+    @Override
+    public boolean addEmployeeDetails(Employee employee) {
+        String sql="insert into employee values(?,?,?,?,?,?,?)";
+        // Get the Connection object
+        connection=DbUtil.getDatbaseConnection();
+        if(connection!=null){
+            //3 Create the statement object
+            try {
+                // An object that represents a precompiled SQL statement.
+                PreparedStatement statement= connection.prepareStatement(sql);
+                statement.setInt(1,employee.getId());
+                statement.setString(2,employee.getEname());
+                statement.setLong(3,employee.getPhone());
+                statement.setDouble(4,employee.getSalary());
+                java.sql.Date x= Date.valueOf(employee.getDataOfJoining());
+                statement.setDate(5,x);
+                statement.setString(6,employee.getCompanay());
+                statement.setString(7,employee.getDepartment());
+
+                //4 Execute the query
+                int noOfRows=statement.executeUpdate(); // 1 row affected
+                if(noOfRows>0){
+                    return true;
+                }
+                statement.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            finally {
+                try {
+                    //5. Close the connection
+                    connection.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+    @Override
+    public List<Employee> getAllEmployeeDetails() {
+        List<Employee> employeeList=new ArrayList<>();
+        String sql="select * from employee" ;
+        //String sql="select * from employee where id=?" ;
+        connection=DbUtil.getDatbaseConnection();
+        PreparedStatement statement = null;
+        if(connection!=null){
+            try {
+                statement = connection.prepareStatement(sql);
+                ResultSet resultSet= statement.executeQuery();
+                //Moves the cursor forward one row from its current position.
+                while (resultSet.next()){
+                    Employee employee=new Employee();
+                    employee.setId(resultSet.getInt("id"));
+                    employee.setEname(resultSet.getString("ename"));
+                    employee.setPhone(resultSet.getLong("phone"));
+                    employee.setSalary(resultSet.getDouble("salary"));
+                    employee.setCompanay(resultSet.getString("company"));
+                    employee.setDepartment(resultSet.getString("department"));
+                    Date dateOfJoining = resultSet.getDate("dateOfJoining");
+                    employee.setDataOfJoining(dateOfJoining.toLocalDate());
+                    employeeList.add(employee);
+               }
+            } catch (SQLException throwables) {
+            }
+            finally {
+                try {
+                    statement.close();
+                    connection.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        }
+        return employeeList;
+    }
+
+    @Override
+    public Employee getEmployeeById(int id) {
+        String sql="select * from employee where id=?";
+        connection=DbUtil.getDatbaseConnection();
+        PreparedStatement statement=null;
+        Employee employee=null;
+        try {
+            statement=connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet resultSet= statement.executeQuery();
+            while (resultSet.next()){
+                //System.out.println("--" + resultSet.getInt("id"));
+                employee=new Employee();
+                employee.setId(resultSet.getInt("id"));
+                employee.setEname(resultSet.getString("ename"));
+                employee.setPhone(resultSet.getLong("phone"));
+                employee.setSalary(resultSet.getDouble("salary"));
+                employee.setCompanay(resultSet.getString("company"));
+                employee.setDepartment(resultSet.getString("department"));
+                Date dateOfJoining = resultSet.getDate("dateOfJoining");
+                employee.setDataOfJoining(dateOfJoining.toLocalDate());
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        finally {
+           try {
+                statement.close();
+                connection.close();
+            } catch (SQLException throwables) {
+                throwables.printSta
+
+

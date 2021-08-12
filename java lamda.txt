@@ -1,0 +1,173 @@
+JAVA Lambda code
+
+
+package javaeight;
+
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+public class FunctionalLambda {
+
+    public static void main(String[] args) {
+        // predefined functional interface
+                 // input ,output
+        Function<Integer,Integer>  result = (Integer input) ->  {
+            int output =input+100;
+            return output;
+        };
+        // apply method ;
+        int ans =result.apply(100);
+        System.out.println(ans);
+        Function<Integer,String> ageFunc = (age) -> {
+            return "Your Age is " + age;
+        };
+        String message=ageFunc.apply(18);
+        System.out.println(message);
+
+        BiFunction<Double,Double,String > areaRect=(length,bredth) ->{
+            double area=length*bredth;
+            return  "Area " + area;
+        };
+        System.out.println(areaRect.apply(12.34,4.5));
+    }
+
+}
+
+package javaeight;
+
+import java.util.function.*;
+
+public class FunctionalLambda {
+
+    public static void main(String[] args) {
+        // predefined functional interface
+                 // input ,output
+        Function<Integer,Integer>  result = (Integer input) ->  {
+            int output =input+100;
+            return output;
+        };
+        // apply method ;
+        int ans =result.apply(100);
+        System.out.println(ans);
+        Function<Integer,String> ageFunc = (age) -> {
+            return "Your Age is " + age;
+        };
+        String message=ageFunc.apply(18);
+        System.out.println(message);
+
+        BiFunction<Double,Double,String > areaRect=(length,bredth) ->{
+            double area=length*bredth;
+            return  "Area " + area;
+        };
+        System.out.println(areaRect.apply(12.34,4.5));
+
+
+
+       Predicate<Integer> evenSum =(Integer number)  -> number%2==0;
+       // take single argument as input / return only boolean
+       boolean test = evenSum.test(12);
+       if(test) System.out.println("Even Number");
+       else System.out.println("Odd Number");
+
+       // postive or negative
+
+        Consumer<Integer> printNumber=(x) -> System.out.println(x);
+        printNumber.accept(100);
+
+        Consumer<String> printName=(name) ->{
+            String msg=name.toUpperCase();
+            System.out.println("Welcome Mr. " + msg);
+        };
+        //It will single agrument as input / no return value
+        printName.accept("Sathish G");
+
+        Supplier<String> printMsg=()-> "Welcome to Supplier";
+        // No arguments / return value
+        String supplierMsg=printMsg.get();
+        System.out.println(supplierMsg);
+
+
+
+    }
+
+}
+Predicate<Integer>number=(Integer num)->num>0;
+boolean bool=number.test(1);
+if (bool)
+System.out.println("number is possitive");
+else
+    System.out.println("number is negative");
+
+Problem Statement
+Write a Lambda Expression to print your company Name.
+
+Name of the Interface : MyFunction Method Signature : public String printCompanyName() Name of the Class that contains main method: Example
+
+Write a Lambda Expression to pass an integer as Argument and increment the value by Five
+
+Method Signature :  public int incrementByFive(int a)
+Name of the Class that contains main method: Calculate
+Write a Lambda Expression to pass 2 strings as Arguments and concatenate them.
+
+Name of the Interface : StringConcat Method Signature : public String joinString (String a, String b) Name of the Class that contains main method: ModifyString
+
+Write a Lambda Expression to store Names of the states in India in an ArrayList. print them using For Each Loop.
+
+EMPLOYEE DETAILS
+
+package employeestreams;
+
+import java.sql.SQLOutput;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class EmployeeMain {
+    static {
+        new EmployeeDao().addEmployee(new Employee(1,"A",25000));
+        new EmployeeDao().addEmployee(new Employee(3,"H",45000));
+        new EmployeeDao().addEmployee(new Employee(2,"G",65000));
+        new EmployeeDao().addEmployee(new Employee(5,"P",75000));
+        new EmployeeDao().addEmployee(new Employee(4,"Z",85000));
+    }
+
+    public static void main(String[] args) {
+        List<Employee> employeeList = new EmployeeDao().getEmployeeList();
+        // List Employeess - salary -> 50000
+
+        List<Employee> empSalarygreaterthan50 = employeeList.stream()
+                .filter((employee -> employee.getSalary() > 5000))
+                .collect(Collectors.toList());
+        empSalarygreaterthan50.forEach(employee -> {
+            System.out.println(employee.getId() + "---" + employee.getName()+"---"+ employee.getSalary());
+        });
+
+        // list of employeess - salary 50000 -1 lac
+
+        System.out.println("increment salary by 20000 whose salary<50000");
+        List<Employee> result2 = employeeList.stream()
+                .filter(employee -> employee.getSalary() < 50000)
+                .map(employee -> {
+                    employee.setSalary(employee.getSalary() + 20000);
+                    return employee;
+                })
+                .collect(Collectors.toList());
+        result2.forEach(System.out::println);
+
+        System.out.println("Asecneding order by employee name");
+        employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getName).reversed()) // Employee::getName -->employee -> employee.getName()
+                .forEach(System.out::println);
+        System.out.println("Ascending Order by employee id");
+        employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getId))
+                .forEach(System.out::println);
+        System.out.println("Print Only Employee Names slaray> 50000");
+        List<String> names=employeeList.stream()
+                .map(employee -> employee.getName().toUpperCase())
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println(names);
+    }
+
+}

@@ -1,0 +1,34 @@
+ // String is class / immutable class ->  group of character enclosed within double quotes
+        String str = "Welcome to Java Program";
+        String company = new String("Ust Global");
+        //0 1 2 3 4 5 6 7 8 9
+        //U s t   G l o b a l
+        System.out.println("Length of String " + company.length());
+        String x = company.toLowerCase();
+        System.out.println(x); // ust global
+        System.out.println(company.toUpperCase());
+        char c = company.charAt(0);
+        System.out.println(c); // U
+        String y = company.substring(4);
+        System.out.println(y);  // Global
+        System.out.println(company.substring(0, 3)); // Ust
+        System.out.println(company.substring(4, 9)); // Globa
+        if (company.equalsIgnoreCase("ust global")) {
+            System.out.println("String are equal");
+        }
+        System.out.println(company.indexOf("Global")); //4
+        System.out.println(company.indexOf("l")); // 5
+        System.out.println(company.lastIndexOf("l")); //9
+        if (str.contains("Java")) {
+            System.out.println("Java is found");
+        }
+        String str2 = str.concat(" technology");
+        System.out.println(str2);
+        System.out.println(str);
+
+        System.out.println("a".compareTo("b")); //string1<string2 - > -1
+        System.out.println("b".compareTo("a")); // string1>string2 -> 1
+        System.out.println("a".compareTo("a")); // string1 ==  string 2 -> 0
+
+
+        System.out.println(company);  // Values cannot be changed  -> Ust Global

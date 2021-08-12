@@ -1,0 +1,23 @@
+package junuex;
+
+public class StaticEx {
+    //Instance variable
+    int id;
+    String name;
+    // Static Variable
+    static  String company;  // 2 bytes
+
+    // Static Method
+    static void address(){
+        //System.out.println(id); instance variable
+        //System.out.println(name); instance variable
+        System.out.println(company); // inside the static method only static varibable allowed
+        System.out.println("UST GLOBAL");
+    }
+
+    public static void main(String[] args) {
+        StaticEx  staticEx=new StaticEx();
+        System.out.println(staticEx.id);
+        System.out.println(staticEx.name);
+        System.out.println(StaticEx.company );
+        StaticEx.address();

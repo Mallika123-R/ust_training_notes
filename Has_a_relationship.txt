@@ -1,0 +1,52 @@
+
+HAS-A-RELATIONSHIP
+
+
+package com.hasa;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Person person=new Person();
+        person.setId(101);
+        person.setName("Sathish G");
+        Address addressHome=new Address();
+        addressHome.setHouseNo("12");
+        addressHome.setStreetName("xyz");
+        addressHome.setCity("ABC");
+        addressHome.setPincode(600001);
+        Address addressoffice=new Address();
+        addressoffice.setHouseNo("12");
+        addressoffice.setStreetName("cognizant");
+        addressoffice.setCity("Chennai");
+        addressoffice.setPincode(600001);
+      /* List<Address> addeList=new ArrayList<>();
+       addeList.add(addressHome);
+       addeList.add(addressoffice);
+       person.setList(addeList); */
+       person.getList().add(addressHome);
+       person.getList().add(addressoffice);
+       System.out.println("id " + person.getName());
+        person.getList().stream().forEach(address -> {
+            System.out.println("Address Details");
+            System.out.println(address.getCity());
+            System.out.println(address.getHouseNo());
+            System.out.println(address.getStreetName());
+            System.out.println(address.getPincode());
+        });
+
+
+
+
+
+
+
+
+
+
+    }
+
+}

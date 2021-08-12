@@ -1,0 +1,179 @@
+THIS KEYWORD
+
+package com.kewords;
+
+public class ThisKeywordEx {
+    // Instance variable
+    int length=555;
+    int bredth=666;
+    public ThisKeywordEx(int length, int bredth) {
+        this.length = length;
+        this.bredth = bredth;
+    }
+    public ThisKeywordEx() {
+
+    }
+    void display(){
+        // local variables
+        int length=100;
+        int bredth=200;
+
+        System.out.println(length);       // 100
+        System.out.println(this.length);  // 555
+
+        System.out.println(bredth);       // 200
+        System.out.println(this.bredth);  // 666
+    }
+    public static void main(String[] args) {
+        new ThisKeywordEx().display();
+    }
+
+}
+
+SUPER KEYWORD
+
+
+package com.kewords;
+
+public class ThisKeywordEx {
+    // Instance variable
+    int length=555;
+    int bredth=666;
+    public ThisKeywordEx(int length, int bredth) {
+        this.length = length;
+        this.bredth = bredth;
+    }
+    public ThisKeywordEx() {
+
+    }
+    void display(){
+        // local variables
+        int length=100;
+        int bredth=200;
+
+        System.out.println(length);       // 100
+        System.out.println(this.length);  // 555
+
+        System.out.println(bredth);       // 200
+        System.out.println(this.bredth);  // 666
+    }
+    public static void main(String[] args) {
+        new ThisKeywordEx().display();
+    }
+
+}
+
+
+
+
+
+10:52 AM
+
+SR SATHISH to Everyone
+
+------------
+
+
+
+
+10:52 AM
+
+SR SATHISH to Everyone
+
+package com.kewords;
+
+class A {
+    void dipslay() {
+        System.out.println("A");
+    }
+}
+class B extends A {
+    void dipslay() {
+        super.dipslay();
+        System.out.println("B");
+    }
+}
+public class SuperExample extends B {
+    void dipslay() {
+        super.dipslay();
+        System.out.println("C");
+    }
+    public static void main(String[] args) {
+         SuperExample superExample=new SuperExample();
+         superExample.dipslay();     // A  B C
+
+        B b=new B();
+        b.dipslay();  // A B 
+        
+        A bb=new B(); // Dynamic Disptach method
+        
+    }
+}
+
+CONSTRUCTOR-SUPER KEYWORD
+package com.kewords;
+
+class A {
+    int a=100;
+    A() {
+        super();  // first line of constructor
+        System.out.println("A");
+        System.out.println(a);
+    }
+}
+
+class B extends A {
+    int a=200;
+     B() {
+        super();
+        System.out.println("B");
+         System.out.println(super.a);
+         System.out.println(a);
+    }
+}
+
+public class C extends B {
+    int a=300;
+    C() {
+        super();
+        System.out.println("C");
+        System.out.println(super.a);
+        System.out.println(a);
+    }
+
+    public static void main(String[] args) {
+        C c = new C();     //  A B C
+
+        B  b=new B();    // B c
+
+        A a=new A();     // A
+    }
+}
+
+FINAL 
+
+package com.kewords;
+
+// prevent the inheritance
+final class Area{
+    // prevent the method overriding in sub class - final keyword
+    final int area(int l,int b){
+        return l*b;
+    }
+
+
+}
+// Cannot inherit from final  class
+public class FinalKeywordExample { // extends Area
+    /* 'area(int, int)' cannot override final method
+    @Override
+    int area(int l,int b){
+        return l*b;
+    } */
+
+    public static void main(String[] args) {
+        final double pi=3.14;  // final vaiable - cannot be changed
+
+    }
+}
+

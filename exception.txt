@@ -1,0 +1,42 @@
+package com.exceptionex;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class RuntimeEx {
+
+    public static void main(String[] args) {
+        int a=100,b=0;
+        try{
+            int result=a/b; // Stops
+            System.out.println(result);
+        }catch (ArithmeticException ex){
+            System.out.println(ex.getMessage());
+        }
+       try{
+           String str=null;
+           System.out.println(str.length());
+       }
+       catch(NullPointerException ex){
+           System.out.println(ex.getMessage() + "String is null");
+       }
+       try{
+           int[] arr={1,2,3,4,5};
+           System.out.println(arr[10]);
+       }
+       catch (ArrayIndexOutOfBoundsException ex){
+           System.out.println(ex);
+       }
+       try {
+          int x= new Scanner(System.in).nextInt();
+       }
+       catch (InputMismatchException ex){
+           System.out.println(ex);
+       }
+
+
+        System.out.println("1000 Line");
+
+    }
+
+}

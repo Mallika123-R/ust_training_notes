@@ -1,0 +1,253 @@
+-- SQL Structured Query Language  programming ->used to communicate with database
+-- Data Definition  / Data Manipulation
+-- insert delete update select
+
+
+-- MYSQl - > RDBMS s/w  -> sql  
+-- ORACLE -> RDBMS s/w  -> sql
+-- MSSQL  -> RDBMS s/w  -> sql 
+
+-- Relational Database maangement system => store data in rows and columns(tables / relation) in structured way
+
+-- DDL Commands
+create database ustwave45;
+create database ustsdet;
+use ustsdet;
+show databases;
+select database();
+drop database ustwave45;
+
+create table employee(
+ id integer primary key,  -- unique and not null
+    ename varchar(255) not null,
+    phone bigint(10) not null,
+    salary decimal(10,2) not null, -- 1234567890.89
+    dateOfJoining date not null   -- yyyy-MM-dd
+    );
+insert into employee(id,ename,phone,salary,dateOfJoining) values(101,'Sathish G',9566259956,25500.89,'2021-01-01');
+insert into employee(id,ename,phone,salary,dateOfJoining) values(102,'Sumina',9566259951,45500.89,'2019-06-23');
+insert into employee(id,ename,phone,salary,dateOfJoining) values(103,'Uday',9566259952,255500.89,'2018-05-04');
+insert into employee(id,ename,phone,salary,dateOfJoining) values(104,'Kalpana',9566259955,65500.89,'2015-06-01');
+insert into employee(id,ename,phone,salary,dateOfJoining) values(105,'Nishwanth',9566259954,75500.89,'2012-05-01');    
+insert into employee(id,ename,phone,salary,dateOfJoining) values(106,'Ust Global',9566259954,75500.89,'2012-05-01');    
+insert into employee(id,ename,phone,salary,dateOfJoining) values(107,'Ust',9566259954,75500.89,'2012-05-01');    
+insert into employee(id,ename,phone,salary,dateOfJoining) values(106,null,9566259954,75500.89,'2012-05-01');
+-- Error Code: 1062. Duplicate entry '105' for key 'employee.PRIMARY'
+-- Error Code: 1048. Column 'ename' cannot be null
+
+select * from employee;
+select id,ename from employee;
+select id,ename from employee where id=101;
+select id,ename from employee where salary>=50000;
+ -- like and not like  String pattern matching
+ select * from employee where ename like 'K%'; -- match string starts withs s
+ select * from employee where ename not like 'K%';
+ select * from employee where ename  like '%th'; -- match string ends with th
+ select * from employee where ename  like '%Globa%'; --  match substring Globa
+ select * from employee where ename  like '___'; --  match strings exactly with 3 characters
+ --  logical operator  AND OR NOT
+ select * from employee where salary>=2000 and ename like 'U%';
+ 
+ -- in  / not in
+ select * from employee where id in (101,102,103);  -- 101 102 103
+ select * from employee where id not in (101,102,103);  -- 104 105 106 107
+ 
+ -- between and not between
+ select * from employee where id between 101 and 105; -- check 
+ select * from employee where id not between 101 and 105; --  check 
+ 
+ -- is null / is not null
+ select * from employee where phone is null;
+ select * from employee where phone is not null;
+ 
+ -- add new column  company varchar(255) -> default Ust
+ alter table employee add company varchar(255) not null default 'Ust Global';
+ desc employee;
+ select * from employee;
+  
+ -- add new column age - integer ->  not null
+ -- alter table employee drop company;
+ 
+ update  employee  set company='Cognizant' where id=101;
+ update employee set phone="9566345564",salary=25000.45  where id=101;
+ delete from employee where id=107;
+ 
+ -- modify rename
+
+
+JOIN QUERY
+
+create table customer(
+ id integer primary key auto_increment,
+    name varchar(255),
+    phone bigint(10),
+    city varchar(255)
+    );
+    
+create table booking_status(
+    id integer primary key auto_increment,
+    description varchar(255),
+  );
+    
+    
+create table booking(
+  order_id integer primary key,
+        item_name varchar(255),
+        item_price integer,
+        customer_id integer,
+        booking_status_id integer
+        foreign key booking(customer_id) references  customer(id)
+        foreign key booking(booking_status_id) references  booking_status(id)
+);
+    
+
+
+
+
+
+
+
+4:37 PM
+
+SR SATHISH to Everyone
+
+
+create table customer(
+ id integer primary key auto_increment,
+    name varchar(255),
+    phone bigint(10),
+    city varchar(255)
+    );
+    
+create table order_details(
+  order_id integer primary key,
+        item_name varchar(255),
+        item_price integer,
+        customer_id integer,
+        foreign key
+
+
+
+
+4:37 PM
+
+SR SATHISH to Everyone
+
+SELECT * FROM ustsdet.customer;
+
+
+select * from customer
+inner join 
+order_details on customer.id=order_details.customer_id;
+
+-- display the customer id,name,item name,item price who placed the order
+select
+customer.id,
+customer.name,
+order_details.item_name,
+order_details.item_price
+from customer 
+inner join 
+order_details on customer.id=order_details.customer_id
+order by customer.name asc ;
+
+select
+customer.id,
+customer.name,
+count(*) as No_Of_Placed_Orders
+from customer 
+inner join 
+order_details on customer.id=order_details.customer_id
+group by customer.id;
+
+
+
+
+SELECT * FROM ustsdet.customer;
+
+
+select * from customer
+inner join 
+order_details on customer.id=order_details.customer_id;
+
+
+
+
+Assignmnent
+use ustsdet;
+
+create table customer(
+ id integer primary key auto_increment,
+    name varchar(255),
+    phone bigint(10),
+    city varchar(255)
+    );
+    
+create table booking_status(
+    id integer primary key auto_increment,
+    description varchar(255),
+  );
+    
+    
+create table booking(
+  order_id integer primary key,
+        item_name varchar(255),
+        item_price integer,
+        customer_id integer,
+        booking_status_id integer
+        foreign key booking(customer_id) references  customer(id)
+        foreign key booking(booking_status_id) references  booking_status(id)
+);
+
+Assignment on gitLab
+Assignment - Encapsulation https://gitlab-ust.stackroute.in/stack_jfse_prereq_corejavads_exercises/exercise-bt-class-object-product-analysis
+
+Assignment - Abstract classes https://gitlab-ust.stackroute.in/stack_jfse_prereq_corejavads_exercises/exercise-bt-oops-inheritance-polymorphism
+
+Assignment - Iterating collection https://gitlab-ust.stackroute.in/stack_java_cycle3_exercises/exercise-bt-collections-arraylistsort/
+
+Assignment - Map https://gitlab-ust.stackroute.in/stack_jfse_prereq_corejavads_exercises/exercise-bt-collections-hashmap-movie
+
+Assignment - Exception Handling https://gitlab-ust.stackroute.in/stack_jfse_prereq_corejavads_exercises/exercise-bt-exceptionhandling-exception
+
+
+JOIN three tables with primary and foreign key
+
+select 
+user.name,
+booking.date_from,
+booking_status.description
+ from 
+user
+inner join booking on user.id=booking.user_id
+inner join booking_status on booking_status.id=booking.booking_status_id
+where  booking_status.description='Accepted' and booking.date_from='2021-07-04';
+
+
+TRIGGER concept - Before delete perform some actions like saving in another table before delete from the current details.
+
+
+CREATE TABLE `deleted_user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `phone_number` varchar(45) NOT NULL,
+  `city` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+
+10:49 AM
+
+SR SATHISH to Everyone
+
+CREATE DEFINER=`root`@`localhost` TRIGGER `myFirstTrigger` BEFORE DELETE ON `user` FOR EACH ROW BEGIN
+
+insert into deleted_user(id,name,email,phone_number,city) 
+         values (OLD.id,OLD.name,OLD.email,OLD.phone_number,OLD.city);
+
+END
+

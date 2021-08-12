@@ -1,0 +1,14 @@
+OPTIONAL METHOD
+
+String str=null;
+
+        //System.out.println(str.length());   // NullPointerException
+
+        Optional<String> string = Optional.ofNullable(str);
+        if(string.isPresent()){
+            System.out.println(string);
+        }
+        else{
+             str="Optional Checks for null values";
+            System.out.println(str);
+        }

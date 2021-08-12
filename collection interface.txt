@@ -1,0 +1,173 @@
+
+
+11:29 AM
+
+SR SATHISH to Everyone
+
+K mukesh ...batch status will be shared with ust .....
+
+
+
+
+11:29 AM
+
+SR SATHISH to Everyone
+
+complete asap
+
+
+
+
+11:30 AM
+
+SR SATHISH to Everyone
+
+r u tryin there ...
+
+
+
+
+12:23 PM
+
+Mukesh.mani@ust.com to Everyone
+
+package org.example;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * Hello world!
+ */
+public class App {
+    public static void main(String[] args) {
+        // Can we create the object for interface -> no
+        //Collection collection=new Collection();
+        // Wrapper class
+        int a = 100; //  add feature -> object
+        Integer b = 100;
+        String z = b.toString();
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(100);
+        list.add(200);
+        list.add(300);
+        list.add(400); // allow the duplicate elements
+        list.add(400);
+        //no.add("sting");
+        list.add(null); // allow null values
+        //foreach loop   /// print sum of array elements
+
+        for (Integer x : list) {
+            // do the operation
+            System.out.println(x);  // print in insertion order
+        }
+        list.set(0,1000); System.out.println(list);
+        list.add(0,2000); System.out.println(list);
+        int x=list.get(2); System.out.println(x);
+
+        System.out.println("Size of Array List " + list.size());
+
+        if(list.contains(400)){
+            System.out.println("Element is found");
+        }
+        List<Integer> subList=list.subList(0,4); // 0 ,1,2,3
+        System.out.println(subList);
+        if(list.isEmpty()){
+            System.out.println("Length of List is zero");
+        }
+        list.remove(1);
+        System.out.println(list);
+
+
+
+    }
+}
+
+Set
+package org.example;
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+
+public class SetEx {
+
+
+
+    public static void main(String[] args) {
+
+        TreeSet<Integer> hset= new TreeSet<Integer>();
+        hset.add(400);
+        hset.add(300);
+        hset.add(200);
+        hset.add(100);   //hash function
+        hset.add(800); // duplicate are not allowed
+       // hset.add(null); // tress set -  not null allowed
+
+        System.out.println(hset);
+        for (Integer x:hset) {
+            System.out.println(x); // not maintain any order
+        }
+        System.out.println(hset.contains(400));
+        System.out.println(hset.isEmpty());
+        System.out.println(hset.size());
+        System.out.println(hset.remove(400));
+    }
+
+
+}
+HashMap
+
+
+3:49 PM
+
+SR SATHISH to Everyone
+
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapEx {
+    public static void main(String[] args) {
+        Map<Integer,Integer> hmap=new HashMap<Integer,Integer>();
+        //A map cannot contain duplicate keys;
+        hmap.put(1,88);
+        hmap.put(2,77);
+        hmap.put(3,44);
+        hmap.put(4,99);
+        hmap.put(5,33);
+        System.out.println(hmap);
+        System.out.println(hmap.entrySet());
+        //[1=88, 2=77, 3=44, 4=99, 5=33]
+        for ( Map.Entry<Integer,Integer> map :  hmap.entrySet() ) {
+            //1=88  -> map
+            System.out.println("Key " + map.getKey());
+            System.out.println("Value " + map.getValue());
+
+        }
+        // Print sid whose marks are even
+        for (Map.Entry<Integer,Integer> mapX:hmap.entrySet()){
+            if(mapX.getValue()%2==0){
+                System.out.println("Id " + mapX.getValue());
+            }
+        }
+        hmap.put(4,100);
+        System.out.println(hmap.get(1));  // 88
+        System.out.println(hmap.size());
+        System.out.println(hmap.containsKey(1)); // 1,2,3,4,5
+        System.out.println(hmap.containsValue(33)); // 88,77,44,99,33
+        System.out.println(hmap.remove(3));
+        System.out.println(hmap.values()); // print values
+        System.out.println(hmap.keySet()); // print keys
+
+
+
+    }
+
+}
+
+

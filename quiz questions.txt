@@ -1,0 +1,437 @@
+Scanner class *
+1 point
+The Scanner class is used to get user input
+class found in the java.util package.
+If you enter wrong input , you will get an exception - InputMismatchException
+All are Correct
+Other:
+The source file .java is compiled into .class file by JDK tool *
+1 point
+java
+javac
+jar
+Both java and javac
+javadoc
+Which component converts Java bytecode into machines language ? *
+1 point
+JRE
+None
+JDK
+JVM
+Which component used to compile, debug, execute and monitor Java Program ? *
+1 point
+JDK
+JRE
+JVM
+JAR
+Which are valid declaration of main method ? *
+1 point
+public static void main () { }
+public static void main(String[] args) { }
+public static void main(String[] x) { }
+static public void main(String[] args) { }
+public static void main(string[] args) { }
+Other:
+Which Component is used to run java program ? *
+1 point
+Correct answer 3
+None
+JRE
+JDK
+JVM
+Email *
+Mallika.Wadhwa@ust.com
+Which of following are true about JDK? *
+1 point
+Platform Depenedent
+Development environment for building applications
+Useful for developing and testing programs
+All are correct
+Other:
+Which of following statement are true? *
+1 point
+javac - the Java to bytecode compiler
+java - command to launch a Java application.
+Both are Correct
+Both are Incorrect
+To run Java Program *
+1 point
+javac fileName.java
+javac fileName.class
+javac fileName
+java fileName.java
+java fileName
+java filename.class
+To compile Java Program *
+1 point
+javac fileName.java
+javac fileName.class
+javac fileName
+java fileName.java
+java fileName
+java filename.class
+
+
+quiz 2
+
+
+Quiz 2
+Test  your Skill
+* Required
+What will be output?
+1 point
+Captionless Image
+hello 0 stopped
+hello 0 Math problem occur stopped
+hello Math problem occur string problem occur problem occurs stopped
+hello string problem occur stopped
+Compilation error
+In class Demo must override which methods? *
+1 point
+Captionless Image
+method1
+method2
+method3
+method4
+Compilation error
+What will be output? *
+1 point
+Captionless Image
+120,60,0
+120,60,60
+120,60,120
+120,120,120
+When all methods in a class are abstract the class can be declared as an interface. *
+1 point
+False
+True
+What will be output? *
+1 point
+Captionless Image
+It will print ArithmeticException and prints 5
+It will give ArithmeticException
+prints 5 and It will print ArithmeticException
+Compilation error
+Interface can be used when common functionalities have to be implemented differently across multiple classes. *
+1 point
+False
+True
+May be
+None
+In class Demo must override which methods? *
+1 point
+Captionless Image
+method1
+method2
+method3
+method4
+method5
+Compilation error
+What are rules for method overriding? *
+1 point
+There must be an IS-A relationship (inheritance).
+The method must have the same name in the parent and child class
+The method must have the same parameter in the parent and child class.
+The method must have the different parameter in the parent and child class.
+Method overriding is used for runtime polymorphism
+What will be output? *
+1 point
+Captionless Image
+finally
+exception finsihed
+finally exception finished
+finally finished
+What will be output? *
+1 point
+Captionless Image
+Parent
+Child Parent
+Child
+Compilation Error
+Parent Child
+Try can be followed with either catch or finally. *
+1 point
+true
+fasle
+An abstract class cannot contain non abstract methods *
+1 point
+True
+False
+A subclass inherits all of the “public” and “protected” members of its parent, no matter what package the subclass is in. *
+1 point
+True
+False
+What will be output? *
+1 point
+Captionless Image
+super class message method sub class display method
+super class message method super class display method
+Compilation error
+Runtime error
+Which of the following are checked exceptions?1.ClassNotFoundException 2.IOException 3.NullPointerException 4.ArrayIndexOutOfBoundsException 5.FileNotFoundException *
+1 point
+1,3,4
+1,4,5
+1,2,3
+1,2,5
+Email *
+What are ways to overload the method? *
+1 point
+1. changing no. of arguments/parameters
+2 .changing data type of arguments/parameters
+3 changing the return type of method
+both 1& 2
+All the above
+What will be output? *
+1 point
+Captionless Image
+welcome
+error
+welcome error
+return 0
+Name *
+What will be the output?
+1 point
+Captionless Image
+Compilation error
+20 50
+10 50
+20 10
+10 20
+Which of following are true about data abstraction? *
+1 point
+Process of hiding implemetations details
+showing only essential information to the user.
+Abstraction can be achieved with either abstract classes or interfaces
+All the above
+Which of the following keywords ensures that a method cannot be overridden? *
+1 point
+static
+final
+super
+protected
+abstruct
+interface
+Page 1 of 1
+Never submit passwords through Google Forms.
+This content is neither created nor endorsed by Google. Report Abuse - Terms of Service - Privacy Policy
+Google Forms
+
+
+wrong ans
+
+Quiz 2
+Total points
+11/20
+ 
+Test  your Skill
+ 
+What will be output?
+1/1
+Captionless Image
+hello 0 stopped
+hello 0 Math problem occur stopped
+hello Math problem occur string problem occur problem occurs stopped
+hello string problem occur stopped
+ 
+Compilation error
+ 
+In class Demo must override which methods? *
+0/1
+Captionless Image
+method1
+method2
+method3
+ 
+method4
+ 
+Compilation error
+Correct answer
+method1
+method2
+method3
+method4
+ 
+What will be output? *
+0/1
+Captionless Image
+120,60,0
+ 
+120,60,60
+120,60,120
+120,120,120
+Correct answer
+120,120,120
+ 
+When all methods in a class are abstract the class can be declared as an interface. *
+1/1
+False
+True
+ 
+ 
+What will be output? *
+1/1
+Captionless Image
+It will print ArithmeticException and prints 5
+It will give ArithmeticException
+prints 5 and It will print ArithmeticException
+ 
+Compilation error
+ 
+Interface can be used when common functionalities have to be implemented differently across multiple classes. *
+1/1
+False
+True
+ 
+May be
+None
+ 
+In class Demo must override which methods? *
+0/1
+Captionless Image
+method1
+ 
+method2
+ 
+method3
+method4
+method5
+ 
+Compilation error
+Correct answer
+method1
+method2
+method3
+method4
+ 
+What are rules for method overriding? *
+1/1
+There must be an IS-A relationship (inheritance).
+ 
+The method must have the same name in the parent and child class
+ 
+The method must have the same parameter in the parent and child class.
+ 
+The method must have the different parameter in the parent and child class.
+Method overriding is used for runtime polymorphism
+ 
+ 
+What will be output? *
+1/1
+Captionless Image
+finally
+exception finsihed
+finally exception finished
+ 
+finally finished
+ 
+What will be output? *
+0/1
+Captionless Image
+Parent
+Child Parent
+Child
+Compilation Error
+ 
+Parent Child
+Correct answer
+Child
+ 
+Try can be followed with either catch or finally. *
+1/1
+true
+ 
+fasle
+ 
+An abstract class cannot contain non abstract methods *
+0/1
+True
+False
+ 
+Correct answer
+True
+ 
+A subclass inherits all of the “public” and “protected” members of its parent, no matter what package the subclass is in. *
+1/1
+True
+ 
+False
+ 
+What will be output? *
+0/1
+Captionless Image
+super class message method sub class display method
+super class message method super class display method
+Compilation error
+ 
+Runtime error
+Correct answer
+super class message method sub class display method
+Feedback
+The correct answer is right because x, y, z
+ 
+Which of the following are checked exceptions?1.ClassNotFoundException 2.IOException 3.NullPointerException 4.ArrayIndexOutOfBoundsException 5.FileNotFoundException *
+1/1
+1,3,4
+1,4,5
+1,2,3
+1,2,5
+ 
+Email *
+Mallika.Wadhwa@ust.com
+ 
+What are ways to overload the method? *
+···
+/1
+1. changing no. of arguments/parameters
+2 .changing data type of arguments/parameters
+3 changing the return type of method
+both 1& 2
+ 
+All the above
+No correct answers
+ 
+What will be output? *
+0/1
+Captionless Image
+welcome
+error
+ 
+welcome error
+return 0
+Correct answer
+welcome error
+Name *
+Mallika.Wadhwa@ust.com
+ 
+What will be the output?
+1/1
+Captionless Image
+Compilation error
+20 50
+ 
+10 50
+20 10
+10 20
+ 
+Which of following are true about data abstraction? *
+1/1
+Process of hiding implemetations details
+showing only essential information to the user.
+Abstraction can be achieved with either abstract classes or interfaces
+All the above
+ 
+ 
+Which of the following keywords ensures that a method cannot be overridden? *
+0/1
+static
+ 
+final
+super
+protected
+abstruct
+interface
+Correct answer
+final
+This content is neither created nor endorsed by Google. - Terms of Service - Privacy Policy
+Google Forms

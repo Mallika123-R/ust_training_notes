@@ -1,0 +1,161 @@
+DATE FORMAT AND CALCULATE
+
+package localDate;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
+public class DateEx {
+
+    public static void main(String[] args)
+    {
+        LocalDate today=LocalDate.now();
+        System.out.println("Today date is "+today);
+
+        String dob="23/05/2020";
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println(formatter);
+
+        LocalDate dateofJoining=LocalDate.parse(dob,formatter);
+        System.out.println("My date of joining "+dateofJoining);
+
+        System.out.println(today.getDayOfMonth());
+        System.out.println(today.getMonthValue());
+        System.out.println(today.getYear());
+        System.out.println(today.getDayOfWeek());
+        System.out.println(today.getDayOfYear());
+        System.out.println(today.getDayOfYear());
+
+        System.out.println(today.plusDays(10));
+        System.out.println(today.plusMonths(2));
+        System.out.println(today.plusYears(3));
+
+        System.out.println(today.minusDays(10));
+        System.out.println(today.minusMonths(2));
+        System.out.println(today.minusYears(3));
+
+        System.out.println(today.isEqual(dateofJoining));
+        System.out.println(today.isAfter(dateofJoining));
+        System.out.println(today.isBefore(dateofJoining));
+
+        System.out.println(today.isLeapYear());
+
+        //convert string to local date
+        String str="2021/07/06";
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate  str1 = LocalDate.parse(str, formatter1);
+        System.out.println(str1);
+
+        String stringDate=str1.format(formatter1);
+        System.out.println(stringDate);
+
+        long noofDays= ChronoUnit.DAYS.between(dateofJoining,today);
+        long noofMonths= ChronoUnit.MONTHS.between(dateofJoining,today);
+        long noofYears= ChronoUnit.YEARS.between(dateofJoining,today);
+
+        System.out.println("Total Exp "+noofDays+ " Days "+noofMonths+ " Months "+noofYears+ " Years");
+
+
+        //local date to string
+
+
+
+
+
+
+
+
+    }
+}
+
+
+CALCULATE PRODUCT EXPIRY DATE
+
+package javadate;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAccessor;
+import java.util.Scanner;
+
+public class LocalDateExample {
+
+    public static void main(String[] args) {
+
+        LocalDate today=LocalDate.now();
+        System.out.println("Todays Date " + today);  //2021-07-06
+        // user wants 06-07-2021  06/07/2021
+
+        String doj="20/09/2020";
+        // Formatter for printing and parsing date-time objects.
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dateOfJoining = LocalDate.parse(doj, formatter);
+        System.out.println("My Date of Joining " + dateOfJoining);
+
+        System.out.println(today.getDayOfMonth());
+        System.out.println(today.getMonthValue());
+        System.out.println(today.getYear());
+        System.out.println(today.getDayOfWeek());
+        System.out.println(today.getDayOfYear());
+
+
+        System.out.println(today.plusDays(10));
+        System.out.println(today.plusMonths(2));
+        System.out.println(today.plusYears(3));
+
+        System.out.println(today.minusDays(10));
+        System.out.println(today.minusMonths(2));
+        System.out.println(today.minusYears(3));
+
+        System.out.println(today.isEqual(dateOfJoining));
+        System.out.println(today.isAfter(dateOfJoining));
+        System.out.println(today.isBefore(dateOfJoining));
+        System.out.println(today.isLeapYear());
+
+        String dor="2021/07/06"; // convert string to localdate
+        DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate dateOfRelieving=LocalDate.parse(dor,dtf);
+        System.out.println(dateOfRelieving);
+        // local date to string
+        String stringDate=dateOfRelieving.format(dtf);
+        System.out.println(stringDate);
+
+        long nofDays=ChronoUnit.DAYS.between(dateOfJoining,today);
+        long noofMonths=ChronoUnit.MONTHS.between(dateOfJoining,today);
+        long nofYears=ChronoUnit.YEARS.between(dateOfJoining,today);
+        System.out.println("Total Exp "+ nofDays +" Days" + noofMonths +" Months"+ nofYears +" Years" );
+
+        // get input from scanner -  convert into localdate
+       // Product -> manufacture Date ->  best before 30 days
+       //  Condside today date - check product is valid or not
+        System.out.println("Enter manufacture date");
+        Scanner scanner=new Scanner(System.in);
+        String mandate=scanner.next();
+        DateTimeFormatter mdate = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate mdate1 = LocalDate.parse(mandate, mdate);
+        long  noOfDays1= ChronoUnit.DAYS.between(mdate1,today);
+        if (noOfDays1>30) {
+            System.out.println("not valid");
+        }
+        else {
+            System.out.println("valid");
+        }
+        // Product -> expiry date
+        // consider taday date ->  check product is valid / expired
+        System.out.println("Enter Expiry date");
+        String expdate=scanner.next();
+        DateTimeFormatter exdate = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate exdate1 = LocalDate.parse(expdate, exdate);
+        if (today.isAfter(exdate1)) {
+            System.out.println("not valid");
+        }
+        else {
+            System.out.println("valid");
+        }
+
+        // today - resign -> 30 days ->  give dataofReleving=?
+       LocalDate dat=LocalDate.of(20121,07,06);
+        System.out.println(dat);

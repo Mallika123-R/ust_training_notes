@@ -1,0 +1,61 @@
+package com.polymorphism;
+
+public class Vehicle {
+
+    public double getVehiclePrice(double onroadPrice){
+        double showRoomPrice=onroadPrice+10000;
+        return  showRoomPrice;
+    }
+}
+
+
+package com.polymorphism;
+
+public class Car extends Vehicle {
+
+    @Override // annoation
+     // -> give information to compiler - method is overide from super class
+    public double getVehiclePrice(double x){
+        return x+20000;
+    }
+    // javac Car.java --> Compile Time
+    //java Car --> Runtime
+    // Rules for Writing Method Overiding - Run time Polymorphism  / Inheritence
+    // Method Signature should be same
+    // 1.Same returntype
+    // 2.same method name
+    // 3.same number of parameter / same datype
+    public static void main(String[] args) {
+        Car hyundai=new Car();
+        System.out.println(hyundai.getVehiclePrice(100000));
+
+        Vehicle vehicle=new Vehicle();
+        System.out.println(vehicle.getVehiclePrice(200000));
+
+    }
+
+}
+
+
+
+public class PolyEx {
+    // same name different action
+    // Method name should be same
+    // Number of paramenets should ve different / datatypes
+    public double area (double radius){
+        return 3.24*radius*radius;
+    }
+
+    public double area(double length,double breadth){
+        return length*breadth;
+    }
+
+    public int area(int length,int breadth){
+        return length*breadth;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new PolyEx().area(23));
+        System.out.println(new PolyEx().area(2.3,4.5));
+        System.out.println(new PolyEx().area(2,4));
+    }
